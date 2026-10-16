@@ -74,7 +74,7 @@ fun CarListScreen(
                     .weight(1f)
                     .padding(top = 5.dp)) {
                     Row() {
-                        Text("On Sale", fontSize = 40.sp, fontWeight = FontWeight.Bold)
+                        Text("On Sale", fontSize = 40.sp, fontWeight = FontWeight.Bold, color=Color.Black)
                     }
                     Row() {
                         Text("Find Your Perfect Ride", color= Color.Gray)
