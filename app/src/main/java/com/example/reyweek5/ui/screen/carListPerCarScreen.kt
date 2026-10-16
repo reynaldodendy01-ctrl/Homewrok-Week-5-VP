@@ -351,7 +351,7 @@ fun CarListPerCarScreenPreview() {
             fueltype = "PETROL",
             price = "Rp 245.000.000",
             location = "Semarang",
-            about = "The Toyota Yaris G AT is a sporty compact hatchback that punches above its weight class. Equipped with a 1.5L dual VVT-i engine, 7 airbags, pre-collision system, and a floating head unit, it offers premium features at a very accessible price point.",
+            about = "The Toyota Yarisd G AT is a sporty compact hatchback that punches above its weight class. Equipped with a 1.5L dual VVT-i engine, 7 airbags, pre-collision system, and a floating head unit, it offers premium features at a very accessible price point.",
             isFavorite = true
         )
     )
