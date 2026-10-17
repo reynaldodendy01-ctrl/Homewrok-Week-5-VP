@@ -3,6 +3,7 @@ package com.example.reyweek5.ui.screen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,16 +36,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontVariation.weight
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.reyweek5.R
 import com.example.reyweek5.model.carItem
 import com.example.reyweek5.viewmodel.viewModelCar
-import com.example.reyweek5.R
-import androidx.compose.foundation.clickable
 
 @Composable
 fun CarListScreen(
@@ -54,14 +53,18 @@ fun CarListScreen(
     val carList by viewModelCar.carList.collectAsState()
     val favoriteCount = carList.count { it.isFavorite }
 
-    Box(Modifier
-        .fillMaxSize()
-        .background(Color(0xFFF6F4F0))){
-        LazyColumn(Modifier
-            .padding(20.dp)
-            .fillMaxSize()) {
-                item{
-                Row(Modifier.padding(top=20.dp)) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(Color(0xFFF6F4F0))
+    ) {
+        LazyColumn(
+            Modifier
+                .padding(20.dp)
+                .fillMaxSize()
+        ) {
+            item {
+                Row(Modifier.padding(top = 20.dp)) {
                     HorizontalDivider(
                         modifier = Modifier.width(43.dp),
                         thickness = 4.dp,
@@ -69,51 +72,55 @@ fun CarListScreen(
                     )
                 }
 
-            Row(Modifier.fillMaxWidth()) {
-                Column(Modifier
-                    .weight(1f)
-                    .padding(top = 5.dp)) {
-                    Row() {
-                        Text("On Sale", fontSize = 40.sp, fontWeight = FontWeight.Bold, color=Color.Black)
+                Row(Modifier.fillMaxWidth()) {
+                    Column(
+                        Modifier
+                            .weight(1f)
+                            .padding(top = 5.dp)
+                    ) {
+                        Row {
+                            Text("On Sale", fontSize = 40.sp, fontWeight = FontWeight.Bold, color = Color.Black)
+                        }
+                        Row {
+                            Text("Find Your Perfect Ride", color = Color.Gray)
+                        }
                     }
-                    Row() {
-                        Text("Find Your Perfect Ride", color= Color.Gray)
+                    Column(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(16.dp))
+                            .border(1.dp, Color(0xFFFFCBBE), RoundedCornerShape(50.dp))
+                            .background(Color(0xFFFFEBEA))
+                            .padding(horizontal = 12.dp, vertical = 8.dp)
+                            .weight(0.4f),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Row {
+                            Icon(
+                                imageVector = Icons.Filled.Favorite,
+                                contentDescription = null,
+                                tint = Color(0xFFFF5636),
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Text(
+                                text = "$favoriteCount saved",
+                                color = Color(0xFFFF5636),
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
                     }
-
                 }
-                Column(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(16.dp))
-                        .border(1.dp, Color(0xFFFFCBBE), RoundedCornerShape(50.dp))
-                        .background(Color(0xFFFFEBEA))
-                        .padding(horizontal = 12.dp, vertical = 8.dp)
-                        .weight(0.4f),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(4.dp)
-                ) {
-                    Row() {
-                        Icon(
-                            imageVector = Icons.Filled.Favorite,
-                            contentDescription = null,
-                            tint = Color(0xFFFF5636),
-                            modifier = Modifier.size(16.dp)
-                        )
-                        Text(
-                            text = "$favoriteCount saved",
-                            color = Color(0xFFFF5636),
-                            fontSize = 12.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
+                Row {
+                    HorizontalDivider(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 20.dp, bottom = 20.dp),
+                        thickness = 1.dp,
+                        color = Color.Gray
+                    )
                 }
             }
-            Row() {
-                HorizontalDivider(
-                    modifier = Modifier.fillMaxWidth().padding(top = 20.dp, bottom = 20.dp),
-                    thickness = 1.dp,
-                    color = Color.Gray
-                )
-            }}
             items(carList) { car ->
                 CarCard(
                     car = car,
@@ -126,9 +133,6 @@ fun CarListScreen(
                     }
                 )
             }
-//            LazyColumn() {
-//
-//            }
         }
     }
 }

@@ -70,7 +70,6 @@ fun CarListPerCarScreen(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {
-
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -82,7 +81,6 @@ fun CarListPerCarScreen(
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
                 )
-
 
                 IconButton(
                     onClick = onBackClick,
@@ -125,7 +123,6 @@ fun CarListPerCarScreen(
                     .background(Color(0xFFF6F4F0))
                     .padding(horizontal = 20.dp, vertical = 24.dp)
             ) {
-
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -152,7 +149,6 @@ fun CarListPerCarScreen(
                 }
 
                 Spacer(modifier = Modifier.height(6.dp))
-
 
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
@@ -191,7 +187,6 @@ fun CarListPerCarScreen(
 
                 Spacer(modifier = Modifier.height(28.dp))
 
-
                 Text(
                     text = "SPECIFICATIONS",
                     fontSize = 12.sp,
@@ -200,7 +195,6 @@ fun CarListPerCarScreen(
                 )
 
                 Spacer(modifier = Modifier.height(12.dp))
-
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -238,7 +232,6 @@ fun CarListPerCarScreen(
 
                 Spacer(modifier = Modifier.height(28.dp))
 
-
                 Text(
                     text = "ABOUT THIS CAR",
                     fontSize = 12.sp,
@@ -256,7 +249,6 @@ fun CarListPerCarScreen(
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
-
 
                 Row(
                     modifier = Modifier
@@ -351,7 +343,7 @@ fun CarListPerCarScreenPreview() {
             fueltype = "PETROL",
             price = "Rp 245.000.000",
             location = "Semarang",
-            about = "The Toyota Yarisd G AT is a sporty compact hatchback that punches above its weight class. Equipped with a 1.5L dual VVT-i engine, 7 airbags, pre-collision system, and a floating head unit, it offers premium features at a very accessible price point.",
+            about = "The Toyota Yaris G AT is a sporty compact hatchback that punches above its weight class. Equipped with a 1.5L dual VVT-i engine, 7 airbags, pre-collision system, and a floating head unit, it offers premium features at a very accessible price point.",
             isFavorite = true
         )
     )

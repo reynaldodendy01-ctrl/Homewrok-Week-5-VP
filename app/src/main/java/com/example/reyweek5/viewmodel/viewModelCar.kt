@@ -162,8 +162,4 @@ class viewModelCar: ViewModel(){
             _selectedCar.update { it?.copy(isFavorite = !it.isFavorite) }
         }
     }
-
-//    fun navigateToDetail(car: carItem){
-//
-//    }
 }
